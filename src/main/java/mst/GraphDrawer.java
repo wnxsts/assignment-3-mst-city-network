@@ -10,6 +10,10 @@ import java.util.Random;
 public class GraphDrawer {
     public static void draw(Graph g, int id, String folder) throws Exception {
         int size = 800;
+        if (g.vertices() > 200) {
+            System.out.println("Skipping drawing graph id " + id + " (V=" + g.vertices() + ")");
+            return;
+        }
         BufferedImage img = new BufferedImage(size, size, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2 = img.createGraphics();
         g2.setColor(Color.WHITE);
